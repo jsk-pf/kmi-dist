@@ -34,16 +34,10 @@
 
 <body>
     <div id="container">
-        <div class="flex-wrap">
-            <div class="flex-container">
-                <!-- BUTTON - 의사초진 및 상담 -->
-                <a href="javascript:void(0);" title="팝업열림" class="btn-open-popup" data-toggle="modal" data-target="popupMainDetail">팝업열림: 출장 검진 진행 예정</a>
-                <br /><br /><br />
-            </div>
-        </div>
+        <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupPersonalGuide01"><span>OPEN
+                POPUP</span></button>
 
-        <!-- POPUP - 의사초진 및 상담 -->
-        <div class="c-layer-popup kmi-popup type-modal" id="popupMainDetail" role="dialog" aria-labelledby="popupMainDetail_Label" aria-modal="true" aria-hidden="true">
+        <div class="c-layer-popup kmi-popup type-modal" id="popupPersonalGuide01" role="dialog" aria-labelledby="popupPersonalGuide_Label01" aria-modal="true" aria-hidden="true">
             <div class="modal-wrap">
                 <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
                 <div class="modal-field" tabindex="0">
@@ -52,13 +46,13 @@
 
                     <div class="c-modal-body">
                         <div class="c-modal-inner">
-                            <div class="in-cont type-detail">
-                                <h1 id="popupMainDetail_Label">출장 검진 진행 예정</h1>
-                                <p>
-                                    장소 : 한국의학연구소 광화문센터<br />
-                                    날짜 : 2022-05-12<br />
-                                    시간 : 오전 9시
-                                </p>
+                            <!-- 팝업의 설명(대체텍스트)이 필요한 경우 -->
+                            <!-- <h4 class="c-title skip" id="popupModalType_Label">대체 텍스트</h4> -->
+                            <div class="in-cont personal-terms-popup">
+                                <p id="popupPersonalGuide_Label01" class="title">목록 제공 타이틀</p>
+                                <div class="cont">
+                                    목록제공 관련 내용
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -66,14 +60,14 @@
                     <div class="c-modal-footer">
                         <div class="inner">
                             <div class="buttons">
-                                <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업 닫기</span><span>확인</span></button>
+                                <button class="co-btn bg-navy-1 popup-btn-close"><span>확인</span></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
 </body>
 
 </html>

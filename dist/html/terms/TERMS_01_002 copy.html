@@ -574,6 +574,55 @@
             </footer>
         </div>
     </div>
+    <style>
+    </style>
+    <script>
+        let policyList = document.querySelectorAll('.policy-list > li'),
+            policyListLink = document.querySelectorAll('.policy-list > li > a');
+
+        for (let i = 0; i < policyList.length; i++) {
+            policyListLink[i].addEventListener('click', (e) => {
+
+                let policyCont = policyListLink[i].getAttribute('aria-controls');
+
+                return scroll(policyCont)
+            })
+        }
+
+
+        function scrollDesignScrollEvt(_type, _sclBody, _sclBar, _sclThum) {
+            let sclBarTop = parseInt(_sclBar.style.top);
+
+            let isScrolling;
+            _sclBody.addEventListener('scroll', function() {
+                if (this.scrollTop > 0) {
+                    if (_type === 'modal') _sclBar.style.top = parseFloat(sclBarTop + this.scrollTop) + 'px';
+                    _sclBar.classList.add('show');
+                    _sclThum.style.top = this.scrollTop / ((this.scrollHeight - this.clientHeight + _sclBar.clientHeight) / 100) + '%';
+                } else {
+                    if (_type === 'modal') _sclBar.style.top = sclBarTop + 'px';
+                    _sclThum.style.top = '0';
+                }
+                // scroll stop event
+                window.clearTimeout(isScrolling);
+                isScrolling = setTimeout(function() {
+                    if (_sclBar.classList.contains('show')) _sclBar.classList.remove('show');
+                }, INTERVAL_1000);
+            });
+        }
+
+        function scroll(cont) {
+            let contN = cont,
+                contNScrollY = document.querySelector(`#${contN}`).offsetTop;
+
+            console.log('contNScrollY: + ' + contNScrollY);
+            $('html,body').stop().animate({
+                scrollTop: contNScrollY
+            }, 1000);
+
+
+        }
+    </script>
 
 </body>
 
